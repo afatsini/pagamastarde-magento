@@ -1,0 +1,28 @@
+<fieldset class="form-list">
+    <?php $_code = $this->getMethodCode() ?>
+    <?php $activeMethodUnique = Mage::getStoreConfig('payment/pagantis/url_pagantis_activated'); ?>
+    <?php $activeMethodLoan = Mage::getStoreConfig('payment/pagantis/url_pagantis_mastarde_activated'); ?>
+</fieldset>
+<div id="payment_form_<?php echo $_code ?>" style="display: none">
+    <div id="innerpagantis">
+        <?php if($activeMethodUnique) : ?>
+            <?php if ($activeMethodLoan) :?>
+                <input type="radio" class="pagantisradio" name="paymentdetail[]" value="unico" checked>Paga con cobro único<br />
+                <input type="radio" class="pagantisradio" name="paymentdetail[]" value="financiacion">Financialo con Paga+Tarde<br />
+            <?php else : ?>
+                <input type="hidden" class="pagantisradio" name="paymentdetail[]" value="unico">
+            <?php endif; ?>
+        <?php else: ?>
+            <input type="hidden" class="pagantisradio" name="paymentdetail[]" value="financiacion">
+        <?php endif; ?>
+        <p><?php echo $this->__("Haciendo click en continuar será redirigido a la pasarela de pago seguro de Pagantis.") ?></p>
+        <img id="imgpagantisform" src="<?php echo $this->getSkinUrl('images/pagantis/logopagamastarde.png') ?>"/>
+    </div>
+</div>
+
+<style>
+    #innerpagantis {margin-left: 20px}
+    .pagantisradio {margin-right:10px}
+    #imgpagantisfront {height:20px; margin-right: 10px;}
+    #imgpagantisform {height: 30%;width: 30%;margin-left: 20%;}
+</style>

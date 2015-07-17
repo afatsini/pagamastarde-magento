@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Pagantis_Pagantis>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends></depends>
+        </Pagantis_Pagantis>
+    </modules>
+</config>

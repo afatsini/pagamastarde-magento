@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <pagantis_pagantis_redirect>
+		<reference name="content">
+			<block type="pagantis_pagantis/redirect" name="redirect" template="pagantis/redirect.phtml"></block>
+		</reference>
+	</pagantis_pagantis_redirect>
+</layout>

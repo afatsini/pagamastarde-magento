@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <pagantis translate="label" module="pagantis_pagantis">
+                    <label>Pagantis Payment</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <frontend_model>pagantis_pagantis/adminhtml_system_config_fieldset_payment</frontend_model>
+                    <fields>
+                        <active translate="label" module="pagantis_pagantis">
+                            <label>Abilitado</label>
+                            <comment>Abilitar esta forma de pago?</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <title translate="label" module="pagantis_pagantis">
+                            <label>Título</label>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <!--<title_pagamastarde translate="label" module="pagantis_pagantis">
+                            <label>Título Paga Mas Tarde</label>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title_pagamastarde>-->
+                        <url_pagantis translate="label" module="pagantis_pagantis">
+                            <label>URL Pago Cobro Único</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url_pagantis>
+                        <url_pagantis_activated translate="label" module="pagantis_pagantis">
+                            <label>Activar forma de Pago Cobro Único</label>
+                            <comment>Abilitando esta forma de pago el cliente podrá eligirla al momento de la compra</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url_pagantis_activated>
+                        <url_pagantis_mastarde translate="label" module="pagantis_pagantis">
+                            <label>URL Paga+Tarde</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url_pagantis_mastarde>
+                        <url_pagantis_mastarde_activated translate="label" module="pagantis_pagantis">
+                            <label>Activar forma de Paga+Tarde</label>
+                            <comment>Abilitando esta forma de pago el cliente podrá eligirla al momento de la compra</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url_pagantis_mastarde_activated>
+                        <environment translate="label" module="pagantis_pagantis">
+                            <label>Entorno</label>
+                            <comment>Elegir entorno de Test o Real</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pagantis_pagantis/source_payment_environment</source_model>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </environment>
+                        <language_payment_page translate="label" module="pagantis_pagantis">
+                            <label>Idioma Pagina De Pago</label>
+                            <comment>Elegir el idioma con el cual se abrirá la pagina de pago Pagantis. Por ejemplo ES, FR, EN</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </language_payment_page>
+                        <auth_method translate="label" module="pagantis_pagantis">
+                            <label>Metodo de autenticación</label>
+                            <comment>Valor necesario para pagos con cobro único (SHA1)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </auth_method>
+                        <account_code_test translate="label" module="pagantis_pagantis">
+                            <label>Código de cuenta de Test</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </account_code_test>
+                        <account_key_test translate="label" module="pagantis_pagantis">
+                            <label>Clave de cuenta de Test</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </account_key_test>
+                        <account_api_key_test translate="label" module="pagantis_pagantis">
+                            <label>API Key Test</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </account_api_key_test>
+                        <account_code_real translate="label" module="pagantis_pagantis">
+                            <label>Código de cuenta Real</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </account_code_real>
+                        <account_key_real translate="label" module="pagantis_pagantis">
+                            <label>Clave de cuenta Real</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </account_key_real>
+                        <account_api_key_real translate="label" module="pagantis_pagantis">
+                            <label>API Key Real</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </account_api_key_real>
+                        <sendmail translate="label" module="pagantis_pagantis">
+                            <label>Envía correo de confirma</label>
+                            <frontend_type>Select</frontend_type>
+                            <sort_order>40</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sendmail>
+                        <invoice translate="label" module="pagantis_pagantis">
+                            <label>Crea factura automaticamente</label>
+                            <frontend_type>Select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoice>
+                        <sort_order translate="label" module="pagantis_pagantis">
+                            <label>Ordenación metodo de pago</label>
+                            <comment>Elegir en que posición tiene que salir el metodo de Pago Pagantis en el checkout</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                        <!--<cron_settings translate="label comment" module="pagantis_pagantis">
+                            <label>Cuantas veces quieres ejecutar el proceso de sincronización de los pedidos?</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <comment>Utiliza el formato Crontab (p.e. "0 4 * * *" para cada día a las 4 a.m.)</comment>
+                            <show_in_default>1</show_in_default>
+                        </cron_settings>-->
+                    </fields>
+                </pagantis>
+            </groups>
+        </payment>
+    </sections>
+</config>
