@@ -6,8 +6,8 @@ Módulo de Magento para la versión Magento Community Edition v 1.8.1.x para pag
 ## Instrucciones de Instalación
 
 1. Crea tu cuenta en Pagantis.com si aún no la tienes [desde aquí](https://bo.pagantis.com/users/sign_up)
-2. Descarga el módulo de [aquí](https://github.com/pagantis/pagamastarde-magento/releases)
-3. Instala el módulo en tu magento.
+2. Descarga el módulo de [aquí](https://github.com/pagantis/pagamastarde-magento/releases/download/1.0.0/PagaMasTarde-1.0.0.tgz)
+3. Instala el módulo en tu magento. [Instalation Guide]()
 4. Configuralo con la información de tu cuenta que encontrarás en [el panel de gestión de Pagantis](https://bo.pagantis.com/api). Ten en cuenta que para hacer cobros reales deberás activar tu cuenta de Pagantis.
 5. MUY IMPORTANTE: Añade en [la sección de notificaciones HTTP](https://bo.pagantis.com/notifications) de Pagantis la URL de notificación de tu tienda. Puedes ver más abajo instrucciones para saber la URL de tu comercio.
 
