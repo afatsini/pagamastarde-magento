@@ -28,7 +28,7 @@
             <pagantis_setup>
                 <setup>
                     <module>Pagantis_Pagantis</module>
-                    <class>Mage_Sales_Model_Resource_Setup</class>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
                 </setup>
                 <connection>
                     <use>core_setup</use>
@@ -68,6 +68,7 @@
                 <account_api_key_test></account_api_key_test>
                 <account_code_real></account_code_real>
                 <account_key_real></account_key_real>
+                <discount></discount>
                 <account_api_key_real></account_api_key_real>
                 <sendmail>1</sendmail>
                 <invoice>1</invoice>

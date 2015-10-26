@@ -2,7 +2,7 @@
 
 /**
  * Payment class
- * 
+ *
  * @package    Pagantis_Pagantis
  * @copyright  Copyright (c) 2015 Yameveo (http://www.yameveo.com)
  * @author	   Yameveo <yameveo@yameveo.com>
@@ -21,6 +21,7 @@ class Pagantis_Pagantis_Model_Payment extends Mage_Payment_Model_Method_Abstract
 
     const PAYMENT_UNIQUE = 'unico';
     const PAYMENT_LOAN = 'financiacion';
+    const PMT_URL = 'https://pmt.pagantis.com/v1/installments/';
 
     /**
      * Get checkout session namespace
@@ -81,7 +82,7 @@ class Pagantis_Pagantis_Model_Payment extends Mage_Payment_Model_Method_Abstract
         $stateObject->setStatus('pending_payment');
         $stateObject->setIsNotified(false);
     }
-    
+
     public function getFormFields()
     {
         $orderIncrementId = $this->getCheckout()->getLastRealOrderId();
@@ -102,6 +103,6 @@ class Pagantis_Pagantis_Model_Payment extends Mage_Payment_Model_Method_Abstract
         }
         return $request->toArray();
     }
-       
+
 
 }

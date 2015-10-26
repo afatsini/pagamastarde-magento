@@ -2,7 +2,7 @@
 
 /**
  * Pagantis_Pagantis Helper
- * 
+ *
  * @package    Pagantis_Pagantis
  * @copyright  Copyright (c) 2015 Yameveo (http://www.yameveo.com)
  * @author	   Yameveo <yameveo@yameveo.com>
@@ -94,20 +94,22 @@ class Pagantis_Pagantis_Helper_Data extends Mage_Core_Helper_Abstract
         $request->setAuthMethod($this->_config['auth_method']);
         $request->setOrderId($orderId);
         $request->setAmount($amount);
+        $request->setDiscount($this->_config['discount']);
         switch($this->_config['environment']) {
             case Pagantis_Pagantis_Model_Webservice_Client::ENV_TESTING:
                 $request->setAccountCode($this->_config['account_code_test']);
                 $request->setAccountKey($this->_config['account_key_test']);
-                $request->setAccountApiKey($this->_config['account_api_key_test']);
+                //$request->setAccountApiKey($this->_config['account_api_key_test']);
                 break;
             case Pagantis_Pagantis_Model_Webservice_Client::ENV_PRODUCTION:
                 $request->setAccountCode($this->_config['account_code_real']);
                 $request->setAccountKey($this->_config['account_key_real']);
-                $request->setAccountApiKey($this->_config['account_api_key_real']);
+                //$request->setAccountApiKey($this->_config['account_api_key_real']);
                 break;
         }
         $request->setUrlOk();
         $request->setUrlKo();
+        $request->setCacllbackUrl();
         $request->setFirma();
         return $request;
     }
@@ -131,10 +133,12 @@ class Pagantis_Pagantis_Helper_Data extends Mage_Core_Helper_Abstract
         $request->setOrderId($orderId);
         $request->setAmount($amount);
         $request->setLanguagePagantis($language);
-        $request->setUrlPagantis($this->_config['url_pagantis_mastarde']);
+        //$request->setUrlPagantis($this->_config['url_pagantis_mastarde']);
+        $request->setUrlPagantis (Pagantis_Pagantis_Model_Payment::PMT_URL);
         $request->setUserData($addressId);
         $request->setOrderItems($orderId);
         $request->setAmount($amount);
+        $request->setDiscount($this->_config['discount']);
         switch($this->_config['environment']) {
             case Pagantis_Pagantis_Model_Webservice_Client::ENV_TESTING:
                 $request->setAccountCode($this->_config['account_code_test']);
@@ -147,7 +151,9 @@ class Pagantis_Pagantis_Helper_Data extends Mage_Core_Helper_Abstract
         }
         $request->setUrlOk();
         $request->setUrlKo();
+        $request->setCacllbackUrl();
         $request->setFirma();
+
         return $request;
     }
 
@@ -179,6 +185,9 @@ class Pagantis_Pagantis_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getUrlPagantis() {
 
+        return Pagantis_Pagantis_Model_Payment::PMT_URL;
+        //allways same url, no need to make this check
+        /*
         $paymentDetails = $this->_getCheckoutSession()->getPaymentMethodDetail();
         switch($paymentDetails) {
             case Pagantis_Pagantis_Model_Payment::PAYMENT_UNIQUE:
@@ -188,6 +197,7 @@ class Pagantis_Pagantis_Helper_Data extends Mage_Core_Helper_Abstract
                 return $this->_config['url_pagantis_mastarde'];
                 break;
         }
+        */
     }
 
     /**

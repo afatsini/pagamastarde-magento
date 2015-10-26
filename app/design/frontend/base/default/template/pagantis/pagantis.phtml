@@ -15,8 +15,22 @@
         <?php else: ?>
             <input type="hidden" class="pagantisradio" name="paymentdetail[]" value="financiacion">
         <?php endif; ?>
-        <p><?php echo $this->__("Haciendo click en continuar será redirigido a la pasarela de pago seguro de Pagantis.") ?></p>
-        <img id="imgpagantisform" src="<?php echo $this->getSkinUrl('images/pagantis/logopagamastarde.png') ?>"/>
+        <p>Paga
+                       <span id="int_amount"><?=round($this->instAmount(6),2)?></span> € / mes en
+                        <select style="width:50px" name="num_inst" id="num_inst" onChange="document.getElementById('int_amount').innerHTML=document.getElementById('instAmount'+this.value).innerHTML;" >
+                          <option value="6">6</option>
+                          <option value="5">5</option>
+                          <option value="4">4</option>
+                          <option value="3">3</option>
+                          <option value="2">2</option>
+                      </select> plazos </p>
+
+                      <div style="display:none" id="instAmount2"><?=round ($this->instAmount(2),2)?></div>
+                      <div style="display:none" id="instAmount3"><?=round ($this->instAmount(3),2)?></div>
+                      <div style="display:none" id="instAmount4"><?=round ($this->instAmount(4),2)?></div>
+                      <div style="display:none" id="instAmount5"><?=round ($this->instAmount(5),2)?></div>
+                      <div style="display:none" id="instAmount6"><?=round ($this->instAmount(6),2)?></div>
+
     </div>
 </div>
 

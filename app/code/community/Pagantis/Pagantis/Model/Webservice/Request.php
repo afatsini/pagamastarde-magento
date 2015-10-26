@@ -68,9 +68,20 @@ class Pagantis_Pagantis_Model_Webservice_Request
     protected $_urlKo;
 
     /**
+     *
+     * @var string $_callback_url Requerido 500 URL completa.
+     */
+    protected $_callback_url;
+
+    /**
      * @var string $_firma created by clave_de_firma + account_id + order_id + amount + currency + auth_method + ok_url + nok_url
      */
     protected $_firma;
+
+    /**
+     * @var dicount
+     */
+    protected $_dicount;
 
 
     public function __construct()
@@ -90,6 +101,8 @@ class Pagantis_Pagantis_Model_Webservice_Request
         $array['locale'] = $this->_languagePagantis;
         $array['ok_url'] = $this->_urlOk;
         $array['nok_url'] = $this->_urlKo;
+        $array['callback_url'] = $this->_callback_url;
+        $array['discount'] = $this->_discount;
         //$array['urlPagantis'] = $this->_urlPagantis;
         $array['account_id'] = $this->_accountCode;
         $array['amount'] = $this->_amount;
@@ -184,6 +197,19 @@ class Pagantis_Pagantis_Model_Webservice_Request
     }
 
     /**
+     * Assign discount
+     * @param string $discount
+     * @throws Exception
+     */
+    public function setDiscount($discount=''){
+        if ($discount == 1) {
+            $this->_discount = 'true';
+        } else {
+            $this->_discount = 'false';
+        }
+    }
+
+    /**
      * Assign account key
      * @param string $accountKey
      * @throws Exception
@@ -238,6 +264,14 @@ class Pagantis_Pagantis_Model_Webservice_Request
         }
     }
 
+    /**
+     * @param string $urlnok
+     * @throws Exception
+     */
+    public function setCacllbackUrl($url = '')
+    {
+        $this->_callback_url=Mage::getBaseUrl()."/pagantis/pagantis/notification";
+    }
 
     /**
      * Firm generation
@@ -247,7 +281,6 @@ class Pagantis_Pagantis_Model_Webservice_Request
      */
     public function setFirma()
     {
-        $textToEncode = $this->_accountKey . $this->_accountCode . $this->_orderId . $this->_amount . $this->_currency . $this->_authMethod . $this->_urlOk . $this->_urlKo;
 
         if (strlen(trim($textToEncode)) > 0) {
             // Retrieve del SHA1

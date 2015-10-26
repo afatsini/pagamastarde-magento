@@ -1,7 +1,22 @@
 <img id="imgpagantisfront" src="<?php echo $this->getSkinUrl('images/pagantis/logopagamastarde.png') ?>"/>
 <?php $_code = $this->getMethodCode() ?>
-<a href='http://www.pagantis.com' target="_blank"
-   title='<?php echo $this->__('La nueva generación de pagos online. 1ª Entidad de Pago española nativa digital autorizada por el Ministerio de Economía y Competitividad.'); ?>'>
-    <?php echo $this->__(
-        'Más información'
-    ) ?></a>
+
+
+
+                <span id="int_amount2"><?=round($this->inst6,2)?></span> € / mes en
+                <!--<select style="width:50px" name="num_inst2" disabled="enabled" id="num_inst2" onChange="document.getElementById('int_amount2').innerHTML=document.getElementById('instAmount2'+this.value).innerHTML;" >
+                  <option value="6">6</option>
+                  <option value="5">5</option>
+                  <option value="4">4</option>
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+              </select> -->
+
+              6 plazos
+
+
+              <div style="display:none" id="instAmount22"><?=round ($this->inst2,2)?></div>
+              <div style="display:none" id="instAmount23"><?=round ($this->inst3,2)?></div>
+              <div style="display:none" id="instAmount24"><?=round ($this->inst4,2)?></div>
+              <div style="display:none" id="instAmount25"><?=round ($this->inst5,2)?></div>
+              <div style="display:none" id="instAmount26"><?=round ($this->inst6,2)?></div>

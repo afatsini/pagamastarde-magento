@@ -64,6 +64,11 @@ class Pagantis_Pagantis_Model_Webservice_Requestloan
      */
     protected $_urlKo;
 
+    /**
+     *
+     * @var string $_urlKo Requerido 500 URL completa.
+     */
+    protected $_callback_url;
 
 
     /**
@@ -81,6 +86,10 @@ class Pagantis_Pagantis_Model_Webservice_Requestloan
      */
     protected $_items;
 
+    /**
+     * @var dicount
+     */
+    protected $_dicount;
 
     public function __construct()
     {
@@ -102,6 +111,8 @@ class Pagantis_Pagantis_Model_Webservice_Requestloan
 
         $array['ok_url'] = $this->_urlOk;
         $array['nok_url'] = $this->_urlKo;
+        $array['callback_url'] = $this->_callback_url;
+        $array['discount[full]'] = $this->_discount;
 
         $array['locale'] = $this->_languagePagantis;
 
@@ -262,6 +273,18 @@ class Pagantis_Pagantis_Model_Webservice_Requestloan
     }
 
     /**
+     * Assign discount
+     * @param string $discount
+     * @throws Exception
+     */
+    public function setDiscount($discount=''){
+        if ($discount == 1) {
+            $this->_discount = 'true';
+        } else {
+            $this->_discount = 'false';
+        }
+    }
+    /**
      * Assign account key
      * @param string $accountKey
      * @throws Exception
@@ -304,6 +327,15 @@ class Pagantis_Pagantis_Model_Webservice_Requestloan
         }
     }
 
+    /**
+     * @param string $urlnok
+     * @throws Exception
+     */
+    public function setCacllbackUrl($ur = '')
+    {
+        $this->_callback_url=Mage::getBaseUrl()."/pagantis/pagantis/notification";
+    }
+
 
     /**
      * Firm generation
@@ -313,14 +345,17 @@ class Pagantis_Pagantis_Model_Webservice_Requestloan
      */
     public function setFirma()
     {
-        $textToEncode = $this->_accountKey . $this->_accountCode . $this->_orderId . $this->_amount . $this->_currency  . $this->_urlOk . $this->_urlKo;
-
+        $textToEncode = $this->_accountKey . $this->_accountCode . $this->_orderId . $this->_amount . $this->_currency  . $this->_urlOk . $this->_urlKo . $this->_callback_url . $this->_discount;
+        //encoding is SHA1
+        $this->_firma = sha1($textToEncode);
+        /*
         if (strlen(trim($textToEncode)) > 0) {
             // Retrieve del SHA1
             $this->_firma = sha1($textToEncode);
         } else {
             throw new Exception('Missing SHA1');
         }
+        */
     }
 
     //Utilities
